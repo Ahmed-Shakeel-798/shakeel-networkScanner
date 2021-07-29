@@ -3,12 +3,9 @@
 import scapy.all as scapy
 
 def scan(ip):
-    arp_request = scapy.ARP()
+    arp_request = scapy.ARP(pdst=ip)
+    # also we can do: arp_request.pdst = ip
     print(arp_request.summary())
-    # lists the packet summary
-
-    scapy.ls(scapy.ARP())
-    # lists all the available options of a class
 
 
 scan("192.168.131.2/24")
